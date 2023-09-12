@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>etc</title>
+		<link rel="stylesheet" href="common/vant.min.css" />
+		<script src="common/vue.js"></script>
+		<script src="common/vant.min.js"></script>
+		<script src="common/axios.min.js"></script>
+		<script src="common/Session.js"></script>
+		<script src="common/Tools.js"></script>
+		<script src="common/Validate.js"></script>
+		<script src="common/Page.js"></script>
+		<script src="common/Http.js"></script>
+		<script src="common/index.umd.js"></script>
+		<link rel="stylesheet" href="common/diygw-ui/index.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="container container24325">
+				<div :borderBottom="false" class="diygw-title diygw-top pink">
+					<i onclick="history.back(-1)" class="title-bar-icon diy-icon-back"></i> <span class="back-text" onclick="history.back(-1)">กลับ</span> <i onclick="location.href='index.html'" class="title-bar-icon diy-icon-home margin-left"></i>
+					<div class="title flex1 text-center textindent50">หน้าหลัก</div>
+				</div>
+				<div class="flex diygw-col-24 justify-between items-center flex-nowrap flex-clz">
+					<div class="diygw-col-19">
+						<div class="diygw-search">
+							<div class="flex1 align-center flex padding-xs solid radius">
+								<span style="color: #555 !important" class="diy-icon-search"></span>
+								<van-field class="flex1" name="search" type="" v-model="search" placeholder="กรุณากรอกคำที่ต้องการค้นหา"></van-field>
+							</div>
+						</div>
+					</div>
+					<div class="flex diygw-col-0">
+						<div class="diygw-avatar xs radius bg-none">
+							<img mode="aspectFit" class="diygw-avatar-img radius" src="./static/icon15_yj.png" />
+							<div class="diygw-tag badge avatar-badge-0 red">1</div>
+						</div>
+					</div>
+					<div class="flex diygw-col-0">
+						<div class="diygw-tag margin-xs radius">
+							<img class="diygw-tag-img" src="./static/icon8_qd.png" />
+							<span> เช็คอิน </span>
+						</div>
+					</div>
+				</div>
+				<div class="flex diygw-col-24">
+					<van-notice-bar class="flex1 diy-notice-bar" scrollable color="#07c160" background="#fff" left-icon=" diy-icon-notification">
+						<span class="diy-notice-item"> แพลตฟอร์มสร้างรายได้ออนไลน์ เพียงแค่คุณแชร์แล้วมีคนคลิกข้อความของคุณ ก็สามารถทำเงินได้ </span>
+					</van-notice-bar>
+				</div>
+				<div class="diygw-modal basic" :class="modal" style="z-index: 1000">
+					<div class="diygw-dialog diygw-dialog-modal basis-lg">
+						<div class="justify-end diygw-bar">
+							<div class="content">窗口标题</div>
+							<div class="action" data-type="closemodal" data-id="modal" @click="navigateTo">
+								<i class="diy-icon-close"></i>
+							</div>
+						</div>
+						<div>
+							<div class="flex diygw-dialog-content">
+								<div class="flex diygw-col-24">
+									<button @click="navigateTo" data-type="closemodal" data-id="button-modal" id="button-modal" class="diygw-btn green flex-sub margin-xs button-button-clz">按钮</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex diygw-col-24 line-clz">
+					<div class="diygw-pzx" style="border-bottom: 1px solid #eee"></div>
+				</div>
+				<div class="flex diygw-col-24 diygw-bottom">
+					<div class="diygw-grid diygw-actions">
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size: calc(35px - 12px); width: 35px; height: 35px">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid1.png" />
+								</div>
+								<div class="diygw-grid-title">หน้าหลัก</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size: calc(35px - 12px); width: 35px; height: 35px">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid2.png" />
+								</div>
+								<div class="diygw-grid-title">ภารกิจ</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size: calc(35px - 12px); width: 35px; height: 35px">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid3.png" />
+								</div>
+								<div class="diygw-grid-title">อันดับ</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size: calc(35px - 12px); width: 35px; height: 35px">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid4.png" />
+								</div>
+								<div class="diygw-grid-title">菜单四</div>
+							</div>
+						</button>
+						<button class="diygw-action">
+							<div class="diygw-grid-inner">
+								<div class="diygw-grid-icon diygw-avatar" style="font-size: calc(35px - 12px); width: 35px; height: 35px">
+									<img mode="aspectFit" class="diygw-avatar-img" src="./static/global/grid1.png" />
+								</div>
+								<div class="diygw-grid-title">หน้าหลัก</div>
+							</div>
+						</button>
+					</div>
+				</div>
+				<div class="version text-grey flex-direction-column flex diygw-col-24 justify-center align-center">
+					<div>DIY官网代码生成器生成</div>
+					<div>http://www.diygw.com</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+	<script type="module">
+		const app = Vue.createApp({
+			data() {
+				return {
+					search: '',
+					modal: ''
+				};
+			},
+			created() {
+				this.init();
+			},
+			methods: {
+				async init() {}
+			}
+		});
+		app.use(vant);
+		app.use(DiygwLib);
+		app.config.globalProperties.$tools = new Tools();
+		app.config.globalProperties.$http = httpService;
+		app.config.globalProperties.$session = Session;
+		app.mixin({
+			methods: {
+				Validate,
+				setData,
+				navigateTo,
+				showModal,
+				showToast,
+				uploadImage
+			}
+		});
+		app.mount('#app');
+	</script>
+	<style>
+		.flex-clz {
+			margin-left: 10px;
+			z-index: 1000;
+			width: calc(100% - 10px - 10px) !important;
+			margin-top: 10px;
+			margin-bottom: 0px;
+			margin-right: 10px;
+		}
+		.avatar-badge-0 {
+			right: -5px;
+		}
+		.modal-clz {
+			z-index: 1000;
+		}
+		.diygw-dialog-modal {
+		}
+		.button-button-clz {
+			margin: 3px !important;
+		}
+		.line-clz {
+			margin-left: 10px;
+			width: calc(100% - 10px - 10px) !important;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			margin-right: 10px;
+		}
+		.container24325 {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		.container24325 {
+			padding-top: 45px;
+			padding-bottom: 80px;
+		}
+	</style>
+</html>
